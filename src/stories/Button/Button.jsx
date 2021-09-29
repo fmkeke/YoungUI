@@ -4,24 +4,27 @@ import './button.css';
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ type, size, label, ...props }) => {
+export const Button = ({ type, size,...props }) => {
   return (
     <button
       type="button"
       className={['ki-button',  `ki-button--${size}`, `storybook-button--${type}`].join(' ')}
       {...props}
     >
-      {label}
     </button>
   );
 };
 
 Button.propTypes = {
   //设置按钮类型 控制背景色,字体颜色
-  type:PropTypes.oneOf(['danger', 'normal', 'large']), 
+  backgroundColor:PropTypes.string,
+  /**
+   * 控制button样式
+   */
+  type:PropTypes.oneOf(['default', 'primary', 'normal', 'info','success','warning','error']), 
 
   /**
-   * How large should the button be?
+   * 设置button尺寸
    */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
   /**
@@ -29,13 +32,19 @@ Button.propTypes = {
    */
   label: PropTypes.string.isRequired,
   /**
-   * Optional click handler
+   * 按钮点击事件的回调
    */
   onClick: PropTypes.func,
+  /**
+   * 控制禁用
+   */
+  disable:PropTypes.bool,
 };
 
 Button.defaultProps = {
   type: 'normal',
   size: 'medium',
   onClick: undefined,
+  disable:false,
+  backgroundColor:'#efefef'
 };

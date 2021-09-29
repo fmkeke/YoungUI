@@ -10,11 +10,10 @@ export default {
   },
 };
 
-const Template = (args) => <Button {...args} />;
+const Template = ({label,...args}) => <Button  {...args} >{label} </Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
   label: 'Button',
 };
 
