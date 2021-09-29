@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ki-devider{
+    display: flex;
+    width: 100%;
+    min-width: 100%;
+    border-top: 1px solid rgba(0,0,0,.06);
+    
+}
+.ki-devider.dashed{
+    border-style:dashed;
+}
